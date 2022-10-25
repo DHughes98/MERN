@@ -7,7 +7,7 @@ class Ninja {
     }
 
     sayName() {
-        console.log(`My name is ${this.name}`)
+        console.log(`You go against ${this.name}! Ready yourself...`)
     }
 
     showStats() {
@@ -21,7 +21,25 @@ class Ninja {
     }
 }
 
-const ninja1 = new Ninja("Hidori");
-ninja1.sayName();
-ninja1.showStats();
-ninja1.drinkSake();
+
+class Sensei extends Ninja {
+    constructor(name, wisdom = 10) {
+        super(name, 200, 10, 10, wisdom)
+    }
+
+    speakWisdom() {
+        super.sayName()
+        super.drinkSake()
+        console.log(
+            "What one programmer can do in one month, two programmers can do in two months."
+        )
+    }
+
+    showStats() {
+        super.showStats()
+    }
+}
+
+const superSensei = new Sensei("Master Roshi");
+superSensei.speakWisdom()
+superSensei.showStats()
